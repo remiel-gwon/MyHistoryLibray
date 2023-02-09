@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/layout}">
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<!-- 해당 html페이지에서만 사용할 css, script -->
+<th:block layout:fragment="css">
+  <link rel="stylesheet" th:href="@{/css/11.css}" />
+</th:block>
+<th:block layout:fragment="script"> </th:block>
+
+<div layout:fragment="content">
+  <div>
+    <form action="/accountWrite" method="post" enctype="multipart/form-data">
+      <table>
+        <tr>
+          <td>No</td>
+          <td><input type="text"name="account_no" id="account_no"></td>
+        </tr>
+        <tr>
+          <td>사용날짜</td>
+          <td><input type="date"name="usedate" id="usedate"></td>
+        </tr>
+        <tr>
+          <td>사용처</td>
+          <td><input type="text"name="used" id="used"></td>
+        </tr>
+        <tr>
+          <td>사용물건</td>
+          <td><input type="text" name="content" id="content"></td>
+        </tr>
+        <tr>
+          <td>금액</td>
+          <td><input type="number" name="amount" id="amount"></td>
+        </tr>
+        <tr>
+          <td>지불방법</td>
+          <td>
+            <select name="pay" id="pay">
+              <option value="CASH">현금</option>
+              <option value="LINEPAY">LINEPAY</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>입출금여부</td>
+          <td>
+            <select name="payment" id="payment">
+              <option value="withdraw">출금</option>
+              <option value="deposit">입금</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><button type="submit">등록</button></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+</html>
